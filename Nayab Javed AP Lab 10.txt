@@ -1,0 +1,40 @@
+#lang scheme
+
+
+(define (Addition m n s z)
+(m s (n s z))
+)
+
+
+(define (Subtraction m n pred)
+(n pred m)
+)
+
+
+(define (AND_f a b M N)
+(N a(M a b))
+ )
+
+
+(define (OR_f a b M N)
+(N a(M a b))
+)
+
+
+(define (NOT_f a b M)
+  (M a b))
+
+
+(define (LEQ m n IsZero)
+(IsZero (Subtraction m n))
+  )
+
+(define (GEQ m n IsZero M N)
+(AND_f (LEQ m n IsZero)(LEQ m n IsZero) M N)
+  )
+
+#lang scheme
+(define (Add a b)
+  (cond [(zero? a)]
+        [else (+ b 1)(Add(- a 1) b)])
+  )
